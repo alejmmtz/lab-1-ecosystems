@@ -41,7 +41,7 @@ export default function AnimeList() {
   if (error)
     return (
       <h1 className="p-10 text-center text-2xl text-[#A62631]">
-        Please wait a minute before consulting again.
+        There was a problem with Oracle
       </h1>
     );
 

@@ -22,9 +22,14 @@ export default function AnimePage() {
         }
 
         const result = await response.json();
-        setAnime(result.data);
+        if (result.data) {
+          setAnime(result.data);
+        } else {
+          setError(true);
+        }
       } catch (error) {
         console.error("Error", error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -77,7 +82,8 @@ export default function AnimePage() {
               <span className="font-bold">Started on: </span> {anime.aired.from}
             </h2>
             <h2>
-              <span className="font-bold">Ended on: </span> {anime.aired.to}
+              <span className="font-bold">Ended on: </span>{" "}
+              {anime.aired.to ? anime.aired.to : "Still On Air"}
             </h2>
           </div>
 
